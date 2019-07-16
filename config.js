@@ -4,10 +4,10 @@ module.exports = {
   url: "https://qn895.netlify.com",
   pathPrefix: "/",
   title: "Code snippets & random musings",
-  subtitle: "A blog of random tech things.",
+  subtitle: "My journey to learning new things, one blog post at a time.",
   copyright: "© All rights reserved.",
   disqusShortname: "",
-  postsPerPage: 10,
+  postsPerPage: 20,
   googleAnalyticsId: "UA-73379983-2",
   menu: [
     {
