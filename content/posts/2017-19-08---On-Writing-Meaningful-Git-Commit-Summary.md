@@ -4,11 +4,9 @@ date: "2019-07-16T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/writing-meaningful-git-commit-summary/"
-category: "Code Snippets"
+category: "Random Musings"
 tags:
-  - "Docker"
-  - "Python"
-  - "Jupyter"
+  - "Git"
 description: "Writing meaningful, well-formated git commit summary saves time in the long run. Here's a few of my golden rules."
 ---
 
@@ -20,23 +18,24 @@ I originally wrote these obversations to share as guide with new folks who join 
 
 Reasons:
 
-- Easy for you and other to read
+- Easy for you and others to read
 - Easy for you to compile release notes/change log based on commit history
 
 ## Reference the issue/task (e.g. add `#123` to reference Github issue)
 
 Reasons:
 
-- Issue is always more descriptive
-- Easily traceback what commit did with a simple issue search
-- Interwolve snapshot of code with comments/discussion along the thread and see how it changes over time
+- An issue is always more descriptive and transparent
+- Easily traceback what commit did what with a simple search through issue
+- See how your code evolve along with the discussions in the thread (and particularly as specs and requirements change)
+- See how your commit is linked to multiple issues
 
 ## Frequent, smaller commits are better than one big commit
 
 Reasons:
 
-- Easily cherry-pick changes
-- Easily identify which commit causes a problem using [git-bisect](https://git-scm.com/docs/git-bisect) (which by the way, is the best thing since sliced bread if you are hunting for a bug)
+- Easily [cherry-pick](https://git-scm.com/docs/git-cherry-pick) relevant changes to another branch if needed (also super duper helpful if you're rebasing)
+- Quickly identify which commit causes a problem using [git-bisect](https://git-scm.com/docs/git-bisect) (which, by the way, is the best thing since sliced bread if you are hunting for a bug)
 
 # Patterns
 
@@ -50,7 +49,8 @@ Another approach which I currently use is to namespace the commit by **feature**
 
 ```
 SC: Fix blah blah blah #241
-SC: New blah blah blah #234
+SC: Enhance blah blah blah #234
+SC: Add new way user can search for metric #321
 Textbox: Update to new API v.2.1.0 blah blah blah #123
 Textbox: Clean up
 Textbox: Refactor blahh blah to improve performance
