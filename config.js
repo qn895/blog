@@ -19,7 +19,7 @@ module.exports = {
     name: "Quynh Nguyen",
     photo: "/photo.png",
     bio:
-      "Software engineer by day, hobbyist tinkerer by night. I love all things programming.",
+      "Software engineer by day, hobbyist reader by night. I love all things programming.",
     contacts: {
       email: "quynhnguyen895@utexas.edu",
       github: "qn895"
