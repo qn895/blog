@@ -25,7 +25,7 @@ Recently I went to a talk by the wonderfully friendly Anne Thomas about learning
 **Senior**
 
 - There will always meeting. At this point you will probably do more meetings than hands on work, but that doesn’t mean you should try to do everything all at once because that will ultimately leave you feeling burnt out
-  You can either be very technical or not technical when getting a managerial role, regardless of which path you take, the common pattern is you “stepping up” (e.g. taking more responsibility, mentoring and training people, leading projects)
+- You can either be very technical or not technical when getting a managerial role, regardless of which path you take, the common pattern is you “stepping up” (e.g. taking more responsibility, mentoring and training people, leading projects)
 
 ### What is your definition of success?
 
