@@ -12,8 +12,6 @@ tags:
 description: "Troubleshooting React/Redux performance problems can be dauting. Here are some common pitfalls and how to fix them."
 ---
 
-Common React/Redux Performance Pitfalls & How To Fix Them
-
 In my experience troubleshooting React/Redux performance issues for several teams, I have found several comments pitfalls and mistakes that essentially boil down to:
 
 1. Your selectors are not memoized correctly and are therefore over-computing.
@@ -263,7 +261,9 @@ I recommend checking out [react-window](https://github.com/bvaughn/react-window)
 
 ### Use reselect or memoizeOne _inside_ your React component (not just Redux)
 
-If you have pure React components that need to do some extra heavy lifting, don't be afraid to memoize them! Here's an old snippet of code to demonstrate this method.
+If you have pure React components that need to do some extra heavy lifting, don't be afraid to memoize them!
+
+The example shown below is utilizing `buildLayout`, `buildMainData`, and `buildHistogram` data based on props being received. These are very expensive functions, and as such it's completely advisable to memoize them. `memoizeOne` will cache the most recent one result, so if none of the props changed, the expensive functions won't be called.
 
 ```javascript
 import React from "react";
