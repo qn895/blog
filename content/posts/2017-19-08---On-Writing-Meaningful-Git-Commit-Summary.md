@@ -14,7 +14,7 @@ I originally wrote these obversations to share as guide with new folks who join 
 
 # The Golden Rules
 
-## Always write meaningful, well formated git commits in a consistent pattern
+## Always write meaningful, well formated git commits in a _consistent_ pattern
 
 Reasons:
 
@@ -45,14 +45,22 @@ Also, my manager has a very disciplined way of writing his git commit messages. 
 
 Originally I thought that's way too much work, but the more and more I work on a project the more I appreciate this system.
 
-Another approach which I currently use is to namespace the commit by **feature**, so `[FeatureNameA]`, `[FeatureNameB]`, and so on. For example:
+```
+[Fix] blah blah blah #241
+[Enhance] blah blah blah #234
+[New] search side bar so user can search for metric #321
+[Upgrade] @com/blah to v.2.1.0 #123
+[Clean up] blah blah
+[Refactor] blahh blah to improve performance
+[Version Bump] 1.2.3
+```
 
-```
-SC: Fix blah blah blah #241
-SC: Enhance blah blah blah #234
-SC: Add new way user can search for metric #321
-Textbox: Update to new API v.2.1.0 blah blah blah #123
-Textbox: Clean up
-Textbox: Refactor blahh blah to improve performance
-Version Bump: 1.2.3
-```
+## When to write detailed commit messages?
+
+In my team, we typically add in detailed commit messages when we feel like something needs to be clarified. For example:
+
+1. Breaking changes (this allows us to go back the commit easily)
+2. Explains bugs that we had a hard time catching
+3. Design decisions that are meant to be temporary
+
+Of course, these are things that could be better placed in the code as comments or Github issues. However, I have found that putting it in git commit messages make it easier to search and track down.
