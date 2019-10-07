@@ -24,7 +24,7 @@ In my experience troubleshooting React/Redux performance issues for several team
 
 Usually you use selectors for when operations to calculate derived data get expensive, therefore, you should minimize how many times the inside functions run as much as possible.
 
-**A simple quick check** to see if your selectors are over-computing is to add [`.recomputations`](https://github.com/reduxjs/reselect#q-how-do-i-test-a-selector) in `mapStateToProps` or in your tests to check how many times did your selectors actually ran.
+**A simple quick check** to see if your selectors are over-computing is to add [`.recomputations()`](https://github.com/reduxjs/reselect#q-how-do-i-test-a-selector) in `mapStateToProps` or in your tests to check how many times did your selectors actually ran.
 
 ```javascript
 const mapStateToProps = state => {
@@ -47,7 +47,7 @@ If you get to this point, this means at least one of your earlier selectors is m
 
 **DO NOT call `.toJS` in mapStateToProps!** `toJS` creates a new object entirely, so if you put it in mapStateToProps, it's going to be called every time anything is done in a Redux app.
 
-You should _only_ call `toJS`in selectors any no where else.
+You should _only_ call `toJS` in selectors any no where else.
 
 Also, `toJS` is overall an expensive operation to avoid. If you find yourself having to use `toJS` everywhere, consider whether or not you really need the library.
 
@@ -253,15 +253,17 @@ Similarly, if you're passing in an object or array in the props:
 
 ## Some Extra Toolings To Help with Performance
 
-If you're rendering a large list of complicated items, there are several things you can do to help speed up your app.
+If you're rendering a large list of complex items, there are several things you can do to help speed up your app.
 
 ### Use virtualization to render large lists
 
-I recommend checking out [react-window](https://github.com/bvaughn/react-window) (which is the latest library from the same author as react-virtualized)
+Instead of rendering all the 1000+ items in the list or the table that the users cannot see, virtualization helps render only the items that the user can visibly see at first. This is greate for your app because rendering DOM elements is expensive.
+
+I recommend checking out [react-window](https://github.com/bvaughn/react-window) (which is the latest library from the same author as react-virtualized).
 
 ### Use reselect or memoizeOne _inside_ your React component (not just Redux)
 
-If you have pure React components that need to do some extra heavy lifting, don't be afraid to memoize them!
+If you have React components that need to do some extra heavy lifting, don't be afraid to memoize them!
 
 The example shown below is utilizing `buildLayout`, `buildMainData`, and `buildHistogram` data based on props being received. These are very expensive functions, and as such it's completely advisable to memoize them. `memoizeOne` will cache the most recent one result, so if none of the props changed, the expensive functions won't be called.
 
@@ -395,6 +397,8 @@ I'm not going to delve on this too much because there's a lot of resources such 
 ### Use Indexed Objects Instead of array.find() if you need it often
 
 Often time when you need to look up information from an array and display it. If you find yourself keep having to use `yourArray.find()`, it might be best to convert that array to an object where you can easily access with an `id`.
+
+This of course comes with the cost of more memory usage, so weigh your net costs.
 
 ```javascript
 import _ from "lodash";
