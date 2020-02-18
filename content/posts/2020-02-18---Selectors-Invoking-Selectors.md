@@ -1,6 +1,6 @@
 ---
 title: A Case for Selectors that Invoke Selectors
-date: "2019-02-18T22:40:32.169Z"
+date: "2020-02-18T22:40:32.169Z"
 template: "post"
 draft: false
 slug: "/posts/selectors-invoking-selectors/"
