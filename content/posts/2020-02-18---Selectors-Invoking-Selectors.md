@@ -1,6 +1,19 @@
+---
+title: A Case for Selectors that Invoke Selectors
+date: "2019-02-18T22:40:32.169Z"
+template: "post"
+draft: false
+slug: "/posts/selectors-invoking-selectors/"
+category: "Code Snippets"
+tags:
+  - "React"
+  - "Redux"
+  - "Selectors"
+description: "A surprisingly neat, yet uknown pattern for managing logic with selectors is to invoke selectors within selectors. Memoize-ception!"
+---
+
 ## A Case for Selectors that Invoke Selectors
 
-A surprisingly neat, yet uknown pattern for managing logic with selectors is to invoke selectors within selectors. Whaaaaat. Memoize-ception!
 
 An example use case is let's say you need to switch between different data _sources_, where each source has its own shape and business logic to transform to the final set of data you need. 
 Commonly, one might usually want to do this transformation/expensive calculation  (clean, reshape, process, modify, etc.) everytime an action is being dispatched, either via the api promise itself, mapDispatch, reducer, or even redux-saga. However, that means you have to watch for all the _actions_ relevant to the calculation, then react to that action.
